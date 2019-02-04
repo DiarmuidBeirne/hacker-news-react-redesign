@@ -1,28 +1,56 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import News from './components/News';
+import Header from './components/Header';
 import './App.css';
+import axios from 'axios';
+
+import styled from "styled-components";
+
+const Container = styled.main`
+  min-height: 100vh;
+  background-color: #f4f4f4;
+`;
+
+const Main = styled.section`
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+`;
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
 
+    state = {
+        news: []
+    }
+
+
+
+    componentDidMount() {
+
+        axios.get('http://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50')
+            .then(res => this.setState({ news: res.data.hits}))
+
+
+        // this.setState({ news: res.data})
+    }
+
+
+
+
+    render() {
+
+
+        return (
+            <div className="App">
+                <Container>
+                    <Main>
+                <Header/>
+                <News news={this.state.news}/>
+                    </Main>
+                </Container>
+            </div>
+        );
+    }
+}
 export default App;
