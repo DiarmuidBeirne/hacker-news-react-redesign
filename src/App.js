@@ -8,10 +8,7 @@ import styled from "styled-components";
 
 const Container = styled.main`
   min-height: 100vh;
-  
   background-color: #f4f1ed;
-
-
 `;
 
 const Main = styled.section`
@@ -19,7 +16,6 @@ const Main = styled.section`
   max-width: 900px;
   margin: 0 auto;
   background-color: #f4f1ed;
- 
 `;
 
 class App extends Component {
@@ -32,11 +28,11 @@ class App extends Component {
 
     componentDidMount() {
 
-        axios.get('http://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=30')
+        axios.get('http://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=30') //pull in data
             .then(res => this.setState({ news: res.data.hits}))
 
 
-        // this.setState({ news: res.data})
+
     }
 
 

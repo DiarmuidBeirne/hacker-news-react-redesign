@@ -10,7 +10,6 @@ const StoryBox = styled.div`
   align-items: center;
   background-color: white;
   border-bottom: 5px solid #ffa041;
-  
   margin-bottom: .75rem;
 `;
 
@@ -22,9 +21,7 @@ const Points = styled.div`
   padding: 15px;
   height: 100%
   color: #ffa041;
-   font-weight: bold;
-   
-
+  font-weight: bold;
   @media (max-width: 768px) {
     flex: 0 0 px;
     padding-bottom: 0;
@@ -50,8 +47,6 @@ const InfoBox = styled.div`
     margin-bottom: 5px;
   }
 `;
-
-
 
 const InfoItem = styled.span`
   display: inline-block;
