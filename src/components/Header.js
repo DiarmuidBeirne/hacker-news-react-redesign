@@ -8,9 +8,12 @@ const HeaderLayout = styled.header`
   position: sticky;
   top: 0;
   background-color: white;
-    border-bottom: 10px #f4f4f4;
-    border-radius: 10px;
-    margin-bottom: 2rem;
+    
+    
+    margin-bottom: 1rem;
+    color: white;
+    background-color: #ff6600;
+  
 `;
 
 const HeaderTitle = styled.h1`
@@ -25,7 +28,7 @@ const HeaderTitle2 = styled.h1`
 
 const Header = () => (
     <HeaderLayout>
-        <HeaderTitle>HackerNews</HeaderTitle>
+        <HeaderTitle>Hacker News</HeaderTitle>
 
 
 

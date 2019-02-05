@@ -9,17 +9,21 @@ const StoryBox = styled.div`
   flex-wrap: wrap;
   align-items: center;
   background-color: white;
-  border-bottom: 5px solid #E8A746;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  border-bottom: 5px solid #ffa041;
+  
+  margin-bottom: .75rem;
 `;
 
 const Points = styled.div`
   font-size: 1.2em;
-  flex: 0 0 60px;
+  flex: 0 0 50px;
   text-align: center;
   vertical-align: middle;
-  padding: 5px;
+  padding: 15px;
+  height: 100%
+  color: #ffa041;
+   font-weight: bold;
+   
 
   @media (max-width: 768px) {
     flex: 0 0 px;
@@ -28,7 +32,7 @@ const Points = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 1.5em;
+  font-size: 1.4em;
   align-self: left;
   align: left;
   flex: 1;
@@ -51,22 +55,12 @@ const InfoBox = styled.div`
 
 const InfoItem = styled.span`
   display: inline-block;
-  padding: 0 2px;
+  padding: 0 5px;
 `;
 
 class NewsItem extends Component {
 
-    getStyle = () => {
 
-        return {
-            background: '#ff6600',
-            padding: '1px',
-            borderBottom: '1px #ccc dotted',
-           fontFamily: 'Verdana, Geneva, sans-serif',
-            color: 'white',
-            fontSize: '20px'
-        }
-    }
 
     markComplete = (e) => {
         console.log(this.props)
@@ -74,16 +68,16 @@ class NewsItem extends Component {
 
 
     render() {
-        const { points, url, title, author, kids, text } = this.props.newsItem;
+        const { created_at, points, url, title, author, num_comments} = this.props.newsItem;
         return (
 
 
             <StoryBox>
-            <Points>{points} points</Points>
-                <Title><a href={url} style={{color:"orange"}}>{title}</a></Title>
+            <Points>{points}</Points>
+                <Title><a href={url} style={{color:"#000000"}}>{title}</a></Title>
                 <InfoBox>
-                    <InfoItem>by {author}</InfoItem>
-                    <InfoItem> </InfoItem>
+                    <InfoItem>by {author} </InfoItem>
+                    <InfoItem> <i class="fa fa-comments" aria-hidden="true"></i>{'  '}{num_comments}</InfoItem>
                 </InfoBox>
         </StoryBox>
         )
